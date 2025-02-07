@@ -20,6 +20,31 @@ h1 {
     margin-bottom: 10px;
 }
 
+/* Moving and rotating heart/rose animation */
+.moving-heart {
+    display: inline-block;
+    animation: pendulumSwing 3s infinite ease-in-out;
+}
+
+/* Keyframes for pendulum swinging */
+@keyframes pendulumSwing {
+    0% {
+        transform: rotate(15deg);  /* Start by swinging 15° right */
+    }
+    25% {
+        transform: rotate(-30deg);  /* Swing 30° left */
+    }
+    50% {
+        transform: rotate(30deg);  /* Swing 30° right */
+    }
+    75% {
+        transform: rotate(-30deg);  /* Swing back to 30° left */
+    }
+    100% {
+        transform: rotate(15deg);  /* Return to 15° right */
+    }
+}
+
 .intro-text {
     font-size: 1.8rem;
     color: #ff6699;
