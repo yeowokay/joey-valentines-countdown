@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Countdown</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Valentine's Day, baby! ❤️</h1>
+        <p class="intro-text">Seeing you in:</p>
+        <p id="countdown" class="countdown-timer">Loading countdown...</p>
+        <p class="location-tag">📍 Kraków Airport, Poland</p>
+
+        <!-- Embed Google Maps -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10284.785212533953!2d19.783464158401445!3d50.078567104045675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165dcd41b88a59%3A0x9e4af2b5fa69c21f!2sKrak%C3%B3w%20Airport!5e0!3m2!1sen!2spl!4v1699182304811!5m2!1sen!2spl" 
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+        // Set the target date and time for the countdown (Poland Time)
+        const targetDate = new Date('2025-02-18T23:30:00+01:00');
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeDifference = targetDate - now;
+
+            if (timeDifference > 0) {
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                // Display the countdown
+                document.getElementById('countdown').innerHTML = 
+                    `${days} Days, ${hours} Hours, ${minutes} Minutes, ${seconds} Seconds`;
+            } else {
+                // When the countdown reaches 0
+                document.getElementById('countdown').innerHTML = "It's time! ❤️";
+            }
+        }
+
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
